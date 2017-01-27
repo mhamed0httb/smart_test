@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<!--Import Google Icon Font-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+		
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		
+		<link type="text/css" rel="stylesheet" href="css/coolCSS.css"/>
+		<!-- CSS TIMER 1 -->
+		<!--link rel="stylesheet" href="css/timerStyle.css"-->
+		
+		<!-- CSS TIMER 2 -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
+        <link rel="stylesheet" href="css/stylesTimer2.css" />
+        <link rel="stylesheet" href="css/jqueryTimer2.countdown.css" />
+		
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		<!-- FONTS -->
+		<link href="http://fonts.googleapis.com/css?family=Satisfy|Pathway+Gothic+One" rel="stylesheet">
+		<link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/212141/komikax_-webfont.woff2" rel="stylesheet">
+		<link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/212141/komikax_-webfont.woff" rel="stylesheet">
+		
+		
+		<style>
+			@keyframes animatedBackground {
+			from { background-position: 0 0; }
+			to { background-position: 100% 0; }
+			}
+			body{ 
+			width: 100%; 
+			height: 100%; 
+			background-image: url('img/back2.jpg');
+			background-position: 0px 0px;
+			background-repeat: repeat-x;
+			
+			animation: animatedBackground 15s linear infinite;
+			}
+		</style>
+		
+		
+	</head>
+	
+    <body style="margin-top: 20px; background-color:	#38B5AE">
+		
+		
+		<div class="container" style="">
+			<div class="row">
+				<div class="col s5 left" >
+					<div class="row">
+						<div class="chip left " style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(248, 148, 6,1); color: black">
+							<!--img src="img/esprit.jpg" alt="team1"-->
+							Team 1 
+						</div>
+					</div>
+					<div class="row left">
+						<div class="col s12 left" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">SCORE : 2</div>
+					</div>
+					<!--div class="row">
+						<div class="col s1"><img src="img/cup2_512x512.png" class="pulse" style="width:30px; height: 30px" /></div>
+						<div class="col s1"><img src="img/cup_fill_512x512.png" class="circle pulse" style="width:30px; height: 30px" /></div>
+						<div class="col s1"><img src="img/cup_empty_512x512.png" class="circle pulse" style="width:30px; height: 30px" /></div>
+						<div class="col s1"><img src="img/cup_book_512x512.png" class="pulse" style="width:30px; height: 30px" /></div>
+					</div-->
+					
+				</div>
+				<!--div class="col s2 center" >
+					<div id="countdown" style="margin-left:-60px"></div>					
+					<p id="note"></p>
+				</div-->
+				<div class="col s5 right">
+					
+					<div class="row">
+						<div class="chip  right" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(242, 38, 19,1)">
+							<!--img src="img/logo.png" alt="team2"-->
+							Team 2 
+						</div>
+					</div>
+					<div class="row right">
+						<div class="col s12 right" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">SCORE : 5</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="row center" style="position: relative;">
+				<div class="center bigEntrance" >
+					<img src="img/question_mark_512x512.png" style="width:60px; height: 60px; position: absolute; top: 0px; left: 130px" />
+					<h2 style="border-radius:25px; border-style: solid; font-family: 'Satisfy', 'cursive'; color: #006DF0" class="col s8 offset-s2 center z-depth-1"><span style="color:white; padding: 50px">Q : Question here ?</span></h2>
+				</div>
+			</div>
+			
+			<div class="row center">
+				<a class="waves-effect waves-light btn hide" id="r1" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  <span class="left" style="font-size: 25px; font-family: 'Pathway Gothic One', 'sans-serif';">1 &nbsp - &nbsp </span> Response number 1</a>
+			</div>
+			<div class="row center">
+				<a class="waves-effect waves-light btn hide" id="r2" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px">  <span class="left" style="font-size: 25px; font-family: 'Pathway Gothic One', 'sans-serif';">2 &nbsp - &nbsp </span> Response number 2</a>
+			</div>
+			<div class="row center">
+				<a class="waves-effect waves-light btn hide" id="r3" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px">  <span class="left" style="font-size: 25px; font-family: 'Pathway Gothic One', 'sans-serif';">3 &nbsp - &nbsp </span> Response numberrrr 3</a>
+			</div>
+			
+			<!-- TIMER 1 -->
+			<!--div class="m-wrap tx">
+				<div class="o-watch-wrap">
+				<div class="watch-ui">
+				<div class="o-ring">
+				<div class="o-timer-wrap">
+				<div class="ring-wrap">
+				<svg class="c-t" width="200" height="200">
+				<circle class="c-c" cx="90" cy="100" r="97.5" transform="rotate(-90, 95, 95)"/>
+				</svg>
+				</div>
+				<div class="o-timer">
+				<span class="t-time"></span>
+				</div>
+				</div>
+				<div class="t-options">
+				<span class="t-options-time">
+				<span class="btn b-dec o-opt-btn b-revc glyphicon glyphicon-play"></span>
+				<span class="o-opt-btn display"></span>
+				<span class="btn b-inc o-opt-btn glyphicon glyphicon-play"></span>
+				</span>
+				</div>
+				</div>
+				
+				</div>
+				</div>
+			</div-->
+			<!-- END TIMER 1 -->
+			
+			
+		</div>
+		
+		
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		
+		<!-- JS TIMER 1 -->
+		<!--script src="js/timerScript.js"></script-->
+		
+		<!-- JS TIMER 2 -->
+		<script src="js/jqueryTimer2.countdown.js"></script>
+		<script src="js/scriptTimer2.js"></script>
+		<script>
+			$(document).ready(function(){
+				
+				
+				setInterval(function hello() {
+					$("#r1").removeClass("hide");
+					$("#r1").addClass("slideRight");
+				}, 1000);
+				
+				setInterval(function hello() {
+					$("#r2").removeClass("hide");
+					$("#r2").addClass("slideRight");
+				}, 2000);
+				
+				setInterval(function hello() {
+					$("#r3").removeClass("hide");
+					$("#r3").addClass("slideRight");
+				}, 3000);
+				
+				$(".btn").click(function(){
+					$(this).removeClass("slideRight");
+					$(this).addClass("pulse");
+					$(this).addClass("z-depth-5");
+				});
+			});
+		</script>
+	</body>
+</html>																																	

@@ -1,0 +1,81 @@
+@import "https://fonts.googleapis.com/css?family=Baumans";
+html, html body, html .m-wrap {
+  width: 100%;
+  height: 100%;
+}
+html .tx, html .m-wrap .o-watch-wrap, html .m-wrap .o-watch-wrap .watch-ui .o-ring .ring-wrap, html .m-wrap .o-watch-wrap .watch-ui .o-ring .o-timer, html .m-wrap .o-watch-wrap .watch-ui .o-ring .t-options .t-options-time, html .m-wrap .o-watch-wrap .o-controllers .in-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+html .t-center, html .m-wrap .o-watch-wrap .watch-ui .o-ring .o-timer, html .m-wrap .o-watch-wrap .watch-ui .o-ring .t-options .t-options-time {
+  text-align: center;
+}
+html .m-wrap {
+  color: #EDEDEF;
+  background-color: rgba(0,0,0,0);
+}
+html .m-wrap .o-watch-wrap {
+  width: 230px;
+  height: 230px;
+  background-color: #56259E;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 0px 5px 0px black;
+  -moz-box-shadow: 0px 0px 5px 0px black;
+  box-shadow: 0px 0px 5px 0px black;
+  border: 3px solid;
+}
+
+html .m-wrap .o-watch-wrap .watch-ui .o-ring {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+html .m-wrap .o-watch-wrap .watch-ui .o-ring .ring-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+html .m-wrap .o-watch-wrap .watch-ui .o-ring .ring-wrap .c-t .c-c {
+  fill: transparent;
+  stroke: #EDEDEF;
+  stroke-width: 5;
+  stroke-dasharray: 612;
+  stroke-dashoffset: 612;
+  -webkit-transition: stroke-dashoffset 1s linear, opacity 1s linear;
+  transition: stroke-dashoffset 1s linear, opacity 1s linear;
+}
+html .m-wrap .o-watch-wrap .watch-ui .o-ring .o-timer, html .m-wrap .o-watch-wrap .watch-ui .o-ring .t-options .t-options-time {
+  font-size: 60px;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #7e49c8;
+  border-radius: 50%;
+}
+
+
+html .m-wrap .o-watch-wrap .watch-ui .o-ring .t-options {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity .3s linear, visibility .3s linear;
+  transition: opacity .3s linear, visibility .3s linear;
+}
+
+
+
+
+
