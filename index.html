@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+		
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		
@@ -188,16 +189,29 @@
 				});
 			});*/
 			
+			
+			
 			function load(){
 				$.ajax({
-					url: "http://rest-service.guides.spring.io/greeting"
+					//url: "http://rest-service.guides.spring.io/greeting"
+					url: "http://localhost/test.php"
 					}).then(function(data) {
+					var obj = jQuery.parseJSON(data);
+					$.each(obj, function(i, item) {
+						alert(item.id);
+					})
 					$('.greeting-id').append(data.id);
-					$('.greeting-content').append(data.content);
+					$('.greeting-content').append(data.nom);
 					
 				});
 			}
 			load();
+			
+			$.get('http://localhost/test2.php', function(data) {
+				var obj = jQuery.parseJSON(data);
+				alert(obj.prenom);
+				
+			});
 			
 		</script>
 		
