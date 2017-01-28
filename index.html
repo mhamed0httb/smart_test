@@ -133,11 +133,6 @@
 			</div-->
 			<!-- END TIMER 1 -->
 			
-			<div>
-				<p class="greeting-id">The ID is </p>
-				<p class="greeting-content">The content is </p>
-			</div>
-			
 		</div>
 		
 		
@@ -180,16 +175,6 @@
 		
 		
 		<script>
-			/*$(document).ready(function() {
-				$.ajax({
-				url: "http://rest-service.guides.spring.io/greeting"
-				}).then(function(data) {
-				$('.greeting-id').append(data.id);
-				$('.greeting-content').append(data.content);
-				});
-			});*/
-			
-			
 			
 			function load(){
 				$.ajax({
@@ -198,10 +183,9 @@
 					}).then(function(data) {
 					var obj = jQuery.parseJSON(data);
 					$.each(obj, function(i, item) {
-						alert(item.id);
+						//alert(item.id);
 					})
-					$('.greeting-id').append(data.id);
-					$('.greeting-content').append(data.nom);
+					
 					
 				});
 			}
@@ -209,10 +193,19 @@
 			
 			$.get('http://localhost/test2.php', function(data) {
 				var obj = jQuery.parseJSON(data);
-				alert(obj.prenom);
-				
+				//alert(obj.prenom);
 			});
 			
+			function update(){
+				$.get('http://localhost/test3.php', function(data) {
+					
+					
+				});
+			}
+			
+			$(".btn").click(function(){
+				update();
+			});
 			
 			
 			
@@ -229,12 +222,15 @@
 				// function body...
 				
 				//alert( "making an ajax request...(" + gen + ")" ); // here you call your webservice
-				$.get('http://localhost/test3.php', function(data) {
+				$.get('http://localhost/test2.php', function(data) {
 					var obj = jQuery.parseJSON(data);
 					if(obj.score == 5){
-						//alert("we have a winneeer");
 						$("#r1").css("background-color", "red");
-						clearInterval( id );
+						$("#r3").css("background-color", "green");
+						//clearInterval( id );
+						}else{
+						$("#r1").css("background-color", "rgba(26,188,156,0.7)");
+						$("#r3").css("background-color", "rgba(26,188,156,0.7)");
 					}
 				});
 				gen++;
