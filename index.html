@@ -132,6 +132,10 @@
 			</div-->
 			<!-- END TIMER 1 -->
 			
+			<div>
+				<p class="greeting-id">The ID is </p>
+				<p class="greeting-content">The content is </p>
+			</div>
 			
 		</div>
 		
@@ -171,6 +175,51 @@
 					$(this).addClass("z-depth-5");
 				});
 			});
+		</script>
+		
+		
+		<script>
+			/*$(document).ready(function() {
+				$.ajax({
+				url: "http://rest-service.guides.spring.io/greeting"
+				}).then(function(data) {
+				$('.greeting-id').append(data.id);
+				$('.greeting-content').append(data.content);
+				});
+			});*/
+			
+			function load(){
+				$.ajax({
+					url: "http://rest-service.guides.spring.io/greeting"
+					}).then(function(data) {
+					$('.greeting-id').append(data.id);
+					$('.greeting-content').append(data.content);
+					
+				});
+			}
+			load();
+			
+		</script>
+		
+		<script>
+			/*var gen = 1;
+				
+				// call the function repeatedly in 5 seconds of interval
+				// this call returns an id that can be used to stop the calls
+				var id = setInterval(function(){
+				
+				// function body...
+				
+				alert( "making an ajax request...(" + gen + ")" ); // here you call your webservice
+				load();
+				gen++;
+				
+				// just want to stop it, but you wont need this.
+				if ( gen == 10 ) {
+				clearInterval( id );
+				}
+				
+			}, 2000 ); // 5000 miliseconds == 5 seconds*/
 		</script>
 	</body>
 </html>																																	
