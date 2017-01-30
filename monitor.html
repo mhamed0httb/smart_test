@@ -41,6 +41,10 @@
 			
 			animation: animatedBackground 15s linear infinite;
 			}
+			#test-swipe-1, #test-swipe-2, #test-swipe-3{
+			height: 400px;
+			padding: 20px;
+			}
 		</style>
 		
 		
@@ -51,19 +55,106 @@
 		
 		<div class="container" style="">
 			
-			
-			
-			<div class="row center">
-				<a class="waves-effect waves-light btn" id="validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Validate</a>
+			<ul id="tabs-swipe-demo" class="tabs">
+				<li class="tab col s3"><a class="active" href="#test-swipe-1">Game 1</a></li>
+				<li class="tab col s3"><a href="#test-swipe-2">Game 2</a></li>
+				<li class="tab col s3"><a href="#test-swipe-3">Game 3</a></li>
+			</ul>
+			<div id="test-swipe-1" class="col s12 blue">
+				
+				<div class="row">
+					<div class="col s5 left" >
+						<div class="row">
+							<div class="input-field col s8" id="select_team1_holder" >
+								<a class="waves-effect waves-light btn modal-trigger" href="#modal_change_team1">Change Team</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="chip left " id="team1_name" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(248, 148, 6,1); color: black">
+								Team 1 
+							</div>
+						</div>
+						
+						<div class="row left">
+							<div class="col s12 left" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">
+								<a class="btn-floating" style="background-color: rgba(248, 148, 6,1);" id="btn_add_score_team_1"><i class="material-icons">add</i></a>
+								<a class="btn-floating" style="background-color: rgba(248, 148, 6,1);" id="btn_remove_score_team_1"><i class="material-icons">remove</i></a>
+							</div>
+						</div>
+						
+						
+					</div>
+					<div class="col s5 right">
+						<div class="row">
+							<div class="input-field col s8 right" id="select_team2_holder" >
+								<a class="waves-effect waves-light btn modal-trigger right" href="#modal_change_team2">Change Team</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="chip  right" id="team2_name" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(242, 38, 19,1)">
+								Team 2 
+							</div>
+						</div>
+						
+						<div class="row right">
+							<div class="col s12 right" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">
+								<a class="btn-floating" style="background-color: rgba(242, 38, 19,1)" id="btn_add_score_team_2"><i class="material-icons">add</i></a>
+								<a class="btn-floating" style="background-color: rgba(242, 38, 19,1)" id="btn_remove_score_team_2"><i class="material-icons">remove</i></a>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="row center">
+					<fieldset>
+						<legend>Answer Chosen</legend>
+						<a class="waves-effect waves-light btn" id="choose1" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 1</a>
+						<a class="waves-effect waves-light btn" id="choose2" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 2</a>
+						<a class="waves-effect waves-light btn" id="choose3" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 3</a>
+						<a class="waves-effect waves-light btn" id="choose_nothing" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Nothing</a>
+						
+					</fieldset>
+				</div>
+				
+				<div class="row center">
+					<a class="waves-effect waves-light btn" id="validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Validate</a>
+				</div>
+				
+				<div class="row center">
+					<a class="waves-effect waves-light btn" id="no_validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">no Validate</a>
+				</div>
 			</div>
+			<div id="test-swipe-2" class="col s12 red">Game 2</div>
+			<div id="test-swipe-3" class="col s12 green">Game 3</div>
 			
-			<div class="row center">
-				<a class="waves-effect waves-light btn" id="no_validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">no Validate</a>
+			
+			
+		</div>
+		
+		
+		
+		
+		
+		<!-- Modal Change Team 1 Structure -->
+		<div id="modal_change_team1" class="modal">
+			<div class="modal-content">
+				<h4>Chenge Team 1</h4>
+				<ul id="list_teams_1" class="center"></ul>
 			</div>
-			
-			
-			
-			
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+			</div>
+		</div>
+		
+		<!-- Modal Change Team 2 Structure -->
+		<div id="modal_change_team2" class="modal">
+			<div class="modal-content">
+				<h4>Chenge Team 2</h4>
+				<ul id="list_teams_2" class="center"></ul>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+			</div>
 		</div>
 		
 		
@@ -79,16 +170,18 @@
 		<script src="js/scriptTimer2.js"></script>
 		
 		<script>
+			$('.modal').modal();
+			
 			
 			function update(){
 				$.get('http://localhost/test3.php', function(data) {
-				
+					
 				});
 			}
 			
 			function update2(){
 				$.get('http://localhost/test4.php', function(data) {
-				
+					
 				});
 			}
 			
@@ -100,9 +193,113 @@
 				update2();
 			});
 			
+			$("#btn_add_score_team_1").click(function(){
+				var team1Id = sessionStorage.getItem('team1Id');
+				$.get('http://localhost/SmartTestWebservices/addScoreTeam.php?team='+team1Id, function(data) {
+					
+				});
+			});
+			$("#btn_add_score_team_2").click(function(){
+				var team2Id = sessionStorage.getItem('team2Id');
+				$.get('http://localhost/SmartTestWebservices/addScoreTeam.php?team='+team2Id, function(data) {
+					
+				});
+			});
+			$("#btn_remove_score_team_1").click(function(){
+				var team1Id = sessionStorage.getItem('team1Id');
+				$.get('http://localhost/SmartTestWebservices/minusScoreTeam.php?team='+team1Id, function(data) {
+					
+				});
+			});
+			$("#btn_remove_score_team_2").click(function(){
+				var team2Id = sessionStorage.getItem('team2Id');
+				$.get('http://localhost/SmartTestWebservices/minusScoreTeam.php?team='+team2Id, function(data) {
+					
+				});
+			});
+			
+			$("#choose1").click(function(){
+				$.get('http://localhost/answer_chosen_1.php', function(data) {
+					
+				});
+			});
+			$("#choose2").click(function(){
+				$.get('http://localhost/answer_chosen_2.php', function(data) {
+					
+				});
+			});
+			$("#choose3").click(function(){
+				$.get('http://localhost/answer_chosen_3.php', function(data) {
+					
+				});
+			});
+			$("#choose_nothing").click(function(){
+				$.get('http://localhost/test4.php', function(data) {
+					
+				});
+			});
 			
 			
 			
+			$(document).ready(function() {
+				$('select').material_select();
+			});
+		</script>
+		
+		<script>
+			function changeTeam1(id){
+				var oldTeamId = sessionStorage.getItem('team1Id');
+				$.get('http://localhost/SmartTestWebservices/updateOneTeam.php?new_team='+id+'&old_team='+oldTeamId, function(data) {
+					
+				});
+			}
+			
+			function changeTeam2(id){
+				var oldTeamId = sessionStorage.getItem('team2Id');
+				$.get('http://localhost/SmartTestWebservices/updateOneTeam.php?new_team='+id+'&old_team='+oldTeamId, function(data) {
+					
+				});
+			}
+			
+			
+			
+			//INITIALIZE TEAMS 
+			$.get('http://localhost/SmartTestWebservices/getAllTeams.php', function(data) {
+				var obj = jQuery.parseJSON(data);
+				var options = '';
+				$.each(obj, function(i, item) {
+					options = options + '<option value="'+item.id+'">'+item.name+'</option>';
+					$('#list_teams_1').append('<li><a class="modal-action modal-close btn btn-info" href="#" onclick="changeTeam1(this.id)" id="'+item.id+'" style="color: ">'+item.name+'</a></li>');
+					$('#list_teams_2').append('<li><a class="modal-action modal-close btn btn-info" href="#" onclick="changeTeam2(this.id)" id="'+item.id+'" style="color: ">'+item.name+'</a></li>');
+				})
+			});
+		</script>
+		
+		
+		
+		<script>
+			var gen = 1;
+			
+			var id = setInterval(function(){
+				
+				$.get('http://localhost/SmartTestWebservices/getTeams.php', function(data) {
+					var obj = jQuery.parseJSON(data);
+					$.each(obj, function(i, item) {
+						//alert(item.id);
+						if(item.number == 1){
+							$('#team1_score').html('SCORE : ' + item.score);
+							$('#team1_name').html(item.name);
+							sessionStorage.setItem('team1Id',item.id);
+							}else{
+							$('#team2_score').html('SCORE : ' + item.score);
+							$('#team2_name').html(item.name);
+							sessionStorage.setItem('team2Id',item.id);
+						}
+						
+					})
+				});
+				gen++;
+			}, 1000 ); // 5000 miliseconds == 5 seconds
 		</script>
 		
 	</body>

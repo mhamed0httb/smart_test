@@ -53,13 +53,13 @@
 			<div class="row">
 				<div class="col s5 left" >
 					<div class="row">
-						<div class="chip left " style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(248, 148, 6,1); color: black">
+						<div class="chip left " id="team1_name" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(248, 148, 6,1); color: black">
 							<!--img src="img/esprit.jpg" alt="team1"-->
 							Team 1 
 						</div>
 					</div>
 					<div class="row left">
-						<div class="col s12 left" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">SCORE : 2</div>
+						<div class="col s12 left" id="team1_score" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">SCORE : 2</div>
 					</div>
 					<!--div class="row">
 						<div class="col s1"><img src="img/cup2_512x512.png" class="pulse" style="width:30px; height: 30px" /></div>
@@ -76,13 +76,13 @@
 				<div class="col s5 right">
 					
 					<div class="row">
-						<div class="chip  right" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(242, 38, 19,1)">
+						<div class="chip  right" id="team2_name" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(242, 38, 19,1)">
 							<!--img src="img/logo.png" alt="team2"-->
 							Team 2 
 						</div>
 					</div>
 					<div class="row right">
-						<div class="col s12 right" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">SCORE : 5</div>
+						<div class="col s12 right" id="team2_score" style="font-family: 'Satisfy', 'cursive'; font-size: 20px; ">SCORE : 5</div>
 					</div>
 					
 				</div>
@@ -228,9 +228,43 @@
 						$("#r1").css("background-color", "red");
 						$("#r3").css("background-color", "green");
 						//clearInterval( id );
+						}else if(obj.score == 6){
+						//$("#r1").removeClass("slideRight");
+						$("#r1").addClass("pulse");
+						$("#r1").addClass("z-depth-5");
+						
+						$("#r2").removeClass("pulse");
+						$("#r2").removeClass("z-depth-5");
+						$("#r3").removeClass("pulse");
+						$("#r3").removeClass("z-depth-5");
+						}else if(obj.score == 7){
+						//$("#r2").removeClass("slideRight");
+						$("#r2").addClass("pulse");
+						$("#r2").addClass("z-depth-5");
+						
+						$("#r1").removeClass("pulse");
+						$("#r1").removeClass("z-depth-5");
+						$("#r3").removeClass("pulse");
+						$("#r3").removeClass("z-depth-5");
+						}else if(obj.score == 8){
+						//$("#r3").removeClass("slideRight");
+						$("#r3").addClass("pulse");
+						$("#r3").addClass("z-depth-5");
+						
+						$("#r2").removeClass("pulse");
+						$("#r2").removeClass("z-depth-5");
+						$("#r1").removeClass("pulse");
+						$("#r1").removeClass("z-depth-5");
 						}else{
 						$("#r1").css("background-color", "rgba(26,188,156,0.7)");
 						$("#r3").css("background-color", "rgba(26,188,156,0.7)");
+						
+						$("#r1").removeClass("pulse");
+						$("#r1").removeClass("z-depth-5");
+						$("#r2").removeClass("pulse");
+						$("#r2").removeClass("z-depth-5");
+						$("#r3").removeClass("pulse");
+						$("#r3").removeClass("z-depth-5");
 					}
 				});
 				gen++;
@@ -240,6 +274,33 @@
 					clearInterval( id );
 				}*/
 				
+			}, 1000 ); // 5000 miliseconds == 5 seconds
+		</script>
+		
+		
+		
+		
+		
+		<script>
+			var gen = 1;
+			
+			var id = setInterval(function(){
+				
+				$.get('http://localhost/SmartTestWebservices/getTeams.php', function(data) {
+					var obj = jQuery.parseJSON(data);
+					$.each(obj, function(i, item) {
+						//alert(item.id);
+						if(item.number == 1){
+							$('#team1_score').html('SCORE : ' + item.score);
+							$('#team1_name').html(item.name);
+							}else{
+							$('#team2_score').html('SCORE : ' + item.score);
+							$('#team2_name').html(item.name);
+						}
+						
+					})
+				});
+				gen++;
 			}, 1000 ); // 5000 miliseconds == 5 seconds
 		</script>
 	</body>
