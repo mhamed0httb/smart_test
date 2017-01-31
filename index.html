@@ -292,14 +292,40 @@
 					sessionStorage.setItem('currentQuestionId',item.id);
 					$('#question_holder').html('<div class="center bigEntrance" id="'+item.id+'" ><img src="img/question_mark_512x512.png" style="width:60px; height: 60px; position: absolute; top: 0px; left: 130px" /><h2  class="col s8 offset-s2 center z-depth-1"><span style="color:white; padding: 50px">Q : '+item.question+' ?</span></h2></div>');
 					$('#answers_holder').empty();
+					//var random = Math.floor((Math.random() * 3) + 1);
+					var myArray = [item.answer1, item.answer2, item.answer3];    
+					var rand1 = myArray[Math.floor(Math.random() * myArray.length)];
+					sessionStorage.setItem('rand1',rand1);
+					
+					var i = myArray.indexOf(rand1);
+					if(i != -1) {
+						myArray.splice(i, 1);
+					}
+					
+					var rand2 = myArray[Math.floor(Math.random() * myArray.length)];
+					sessionStorage.setItem('rand2',rand2);
+					
+					var i = myArray.indexOf(rand2);
+					if(i != -1) {
+						myArray.splice(i, 1);
+					}
+					
+					var rand3 = myArray[Math.floor(Math.random() * myArray.length)];
+					sessionStorage.setItem('rand3',rand3);
+					
+					/*alert(rand1);
+						alert(rand2);
+					alert(rand3);*/
+					//alert(rand);
+					
 					setTimeout(function hello() {
-						$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a1">  <span class="left" >1 &nbsp - &nbsp </span> '+item.answer1+'</a></div>');
+						$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a1">  <span class="left" >1 &nbsp - &nbsp </span> '+rand1+'</a></div>');
 					}, 1000);
 					setTimeout(function hello() {
-						$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a2">  <span class="left" >2 &nbsp - &nbsp </span> '+item.answer2+'</a></div>');
+						$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a2">  <span class="left" >2 &nbsp - &nbsp </span> '+rand2+'</a></div>');
 					}, 1500);
 					setTimeout(function hello() {
-						$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a3">  <span class="left" >3 &nbsp - &nbsp </span> '+item.answer3+'</a></div>');
+						$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a3">  <span class="left" >3 &nbsp - &nbsp </span> '+rand3+'</a></div>');
 					}, 2000);
 				})
 			});
@@ -313,28 +339,67 @@
 				$.get('http://localhost/SmartTestWebservices/getDisplayedQuestion.php', function(data) {
 					var obj = jQuery.parseJSON(data);
 					var currentQuestion = sessionStorage.getItem('currentQuestionId');
+					var rand1 = '';
+					var rand2 = '';
+					var rand3 = '';
 					$.each(obj, function(i, item) {
 						if(item.id == currentQuestion){
 							}else{
 							sessionStorage.setItem('currentQuestionId',item.id);
 							$('#question_holder').html('<div class="center bigEntrance" id="'+item.id+'" ><img src="img/question_mark_512x512.png" style="width:60px; height: 60px; position: absolute; top: 0px; left: 130px" /><h2  class="col s8 offset-s2 center z-depth-1"><span style="color:white; padding: 50px">Q : '+item.question+' ?</span></h2></div>');							
 							$('#answers_holder').empty();
+							var myArray = [item.answer1, item.answer2, item.answer3];    
+							rand1 = myArray[Math.floor(Math.random() * myArray.length)];
+							sessionStorage.setItem('rand1',rand1);
+							
+							var i = myArray.indexOf(rand1);
+							if(i != -1) {
+								myArray.splice(i, 1);
+							}
+							
+							rand2 = myArray[Math.floor(Math.random() * myArray.length)];
+							sessionStorage.setItem('rand2',rand2);
+							
+							var i = myArray.indexOf(rand2);
+							if(i != -1) {
+								myArray.splice(i, 1);
+							}
+							
+							rand3 = myArray[Math.floor(Math.random() * myArray.length)];
+							sessionStorage.setItem('rand3',rand3);
 							setTimeout(function hello() {
-								$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a1">  <span class="left" >1 &nbsp - &nbsp </span> '+item.answer1+'</a></div>');
+								$('#answers_holder').append('<div class="row center"> <a class="waves-effect waves-light btn slideRight" id="a1"><span class="left" >1 &nbsp - &nbsp </span>'+rand1+'</a></div>');
 							}, 1000);
 							setTimeout(function hello() {
-								$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a2">  <span class="left" >2 &nbsp - &nbsp </span> '+item.answer2+'</a></div>');
+								$('#answers_holder').append('<div class="row center">  <a class="waves-effect waves-light btn slideRight" id="a2"><span class="left" >2 &nbsp - &nbsp </span>'+rand2+'</a></div>');
 							}, 1500);
 							setTimeout(function hello() {
-								$('#answers_holder').append('<div class="row center"><a class="waves-effect waves-light btn slideRight" id="a3">  <span class="left" >3 &nbsp - &nbsp </span> '+item.answer3+'</a></div>');
+								$('#answers_holder').append('<div class="row center">  <a class="waves-effect waves-light btn slideRight" id="a3"><span class="left" >3 &nbsp - &nbsp </span>'+rand3+'</a></div>');
 							}, 2000);
 						}
+						
+						if(item.validated == true){
+							
+							var rnd1 = sessionStorage.getItem('rand1');
+							var rnd2 = sessionStorage.getItem('rand2');
+							var rnd3 = sessionStorage.getItem('rand3');
+							if(item[2] == rnd1){
+								$("#a1").css("background-color", "green");
+								}else if(item[2] == rnd2){
+								$("#a2").css("background-color", "green");
+								}else{
+								$("#a3").css("background-color", "green");
+							}
+						}
+						
 						
 					})
 				});
 				gen++;
-			}, 2000 ); // 5000 miliseconds == 5 seconds
+			}, 1000 ); // 5000 miliseconds == 5 seconds
 		</script>
+		
+		
 		
 		
 	</body>

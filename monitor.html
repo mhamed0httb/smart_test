@@ -108,27 +108,32 @@
 						
 					</div>
 				</div>
-				<div class="row center">
-					<fieldset>
+				
+				<!--div class="row center">
+					<fieldset class="col m4">
 						<legend>Answer Chosen</legend>
-						<a class="waves-effect waves-light btn" id="choose1" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 1</a>
+						<a class="waves-effect waves-light btn " id="choose1" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 1</a>
 						<a class="waves-effect waves-light btn" id="choose2" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 2</a>
 						<a class="waves-effect waves-light btn" id="choose3" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 3</a>
 						<a class="waves-effect waves-light btn" id="choose_nothing" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Nothing</a>
 						
 					</fieldset>
-				</div>
+				</div-->
 				
 				<div class="row center">
-					<a class="waves-effect waves-light btn" id="validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Validate</a>
+					<a class="waves-effect waves-light btn col s4" id="validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Validate</a>
 				</div>
 				
-				<div class="row center">
+				<!--div class="row center">
 					<a class="waves-effect waves-light btn" id="no_validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">no Validate</a>
-				</div>
+				</div-->
 				
 				<div class="row center">
 					<a class="waves-effect waves-light btn" id="change_question" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">Change Question</a>
+				</div>
+				
+				<div class="row center">
+					<a class="waves-effect waves-light btn" id="reset_questions" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">Reset Questions</a>
 				</div>
 			</div>
 			<div id="test-swipe-2" class="col s12 red">Game 2</div>
@@ -180,12 +185,6 @@
 			$('.modal').modal();
 			
 			
-			function update(){
-				$.get('http://localhost/test3.php', function(data) {
-					
-				});
-			}
-			
 			function update2(){
 				$.get('http://localhost/test4.php', function(data) {
 					
@@ -193,7 +192,9 @@
 			}
 			
 			$("#validate").click(function(){
-				update();
+				$.get('http://localhost/SmartTestWebservices/validateAnswers.php', function(data) {
+					
+				});
 			});
 			
 			$("#no_validate").click(function(){
@@ -204,6 +205,14 @@
 			$("#change_question").click(function(){
 				$.get('http://localhost/SmartTestWebservices/getRandomQuestion.php', function(data) {
 					
+				});
+			});
+			
+			$("#reset_questions").click(function(){
+				$.get('http://localhost/SmartTestWebservices/resetQuestions.php', function(data) {
+					$.get('http://localhost/SmartTestWebservices/deValidateAnswers.php', function(dataa) {
+						alert('questions pool reset to zero');
+					});
 				});
 			});
 			
