@@ -111,17 +111,17 @@
 				
 				<!--div class="row center">
 					<fieldset class="col m4">
-						<legend>Answer Chosen</legend>
-						<a class="waves-effect waves-light btn " id="choose1" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 1</a>
-						<a class="waves-effect waves-light btn" id="choose2" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 2</a>
-						<a class="waves-effect waves-light btn" id="choose3" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 3</a>
-						<a class="waves-effect waves-light btn" id="choose_nothing" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Nothing</a>
-						
+					<legend>Answer Chosen</legend>
+					<a class="waves-effect waves-light btn " id="choose1" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 1</a>
+					<a class="waves-effect waves-light btn" id="choose2" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 2</a>
+					<a class="waves-effect waves-light btn" id="choose3" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Answer 3</a>
+					<a class="waves-effect waves-light btn" id="choose_nothing" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Nothing</a>
+					
 					</fieldset>
 				</div-->
 				
 				<div class="row center">
-					<a class="waves-effect waves-light btn col s4" id="validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Validate</a>
+					<a class="waves-effect waves-light btn" id="validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">  Validate</a>					
 				</div>
 				
 				<!--div class="row center">
@@ -204,13 +204,16 @@
 			
 			$("#change_question").click(function(){
 				$.get('http://localhost/SmartTestWebservices/getRandomQuestion.php', function(data) {
-					
+					if(data == 'nothing'){
+						alert('No more Questions available, Please Press the RESET Button');
+					}
 				});
 			});
 			
 			$("#reset_questions").click(function(){
 				$.get('http://localhost/SmartTestWebservices/resetQuestions.php', function(data) {
 					$.get('http://localhost/SmartTestWebservices/deValidateAnswers.php', function(dataa) {
+						$('#change_question').click();
 						alert('questions pool reset to zero');
 					});
 				});
@@ -223,10 +226,10 @@
 				});
 			});
 			$("#btn_add_score_team_2").click(function(){
-				var team2Id = sessionStorage.getItem('team2Id');
-				$.get('http://localhost/SmartTestWebservices/addScoreTeam.php?team='+team2Id, function(data) {
-					
-				});
+			var team2Id = sessionStorage.getItem('team2Id');
+			$.get('http://localhost/SmartTestWebservices/addScoreTeam.php?team='+team2Id, function(data) {
+				
+			});
 			});
 			$("#btn_remove_score_team_1").click(function(){
 				var team1Id = sessionStorage.getItem('team1Id');
