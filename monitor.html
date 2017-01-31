@@ -2,6 +2,9 @@
 <html>
     <head>
 		
+		<title>Monitor Smart Test By CIT</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+		
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		
@@ -123,6 +126,10 @@
 				<div class="row center">
 					<a class="waves-effect waves-light btn" id="no_validate" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">no Validate</a>
 				</div>
+				
+				<div class="row center">
+					<a class="waves-effect waves-light btn" id="change_question" style="border-radius: 25px; width: 400px; background-color: rgba(26,188,156,0.7); font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 20px ">Change Question</a>
+				</div>
 			</div>
 			<div id="test-swipe-2" class="col s12 red">Game 2</div>
 			<div id="test-swipe-3" class="col s12 green">Game 3</div>
@@ -191,6 +198,13 @@
 			
 			$("#no_validate").click(function(){
 				update2();
+			});
+			
+			
+			$("#change_question").click(function(){
+				$.get('http://localhost/SmartTestWebservices/getRandomQuestion.php', function(data) {
+					
+				});
 			});
 			
 			$("#btn_add_score_team_1").click(function(){
