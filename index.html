@@ -14,12 +14,12 @@
 		
 		<link type="text/css" rel="stylesheet" href="css/coolCSS.css"/>
 		<!-- CSS TIMER 1 -->
-		<!--link rel="stylesheet" href="css/timerStyle.css"-->
+		<link rel="stylesheet" href="css/timerStyle.css">
 		
 		<!-- CSS TIMER 2 -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
         <link rel="stylesheet" href="css/stylesTimer2.css" />
-        <link rel="stylesheet" href="css/jqueryTimer2.countdown.css" />
+        <!--link rel="stylesheet" href="css/jqueryTimer2.countdown.css" /-->
 		
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -54,12 +54,58 @@
 			#answers_holder span{
 			font-size: 25px; font-family: 'Pathway Gothic One', 'sans-serif';
 			}
+			
+			
+			
+			
+			
+			.spin {
+			-webkit-animation-name: spin;
+			-webkit-animation-duration: 4000ms;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+			-moz-animation-name: spin;
+			-moz-animation-duration: 4000ms;
+			-moz-animation-iteration-count: infinite;
+			-moz-animation-timing-function: linear;
+			-ms-animation-name: spin;
+			-ms-animation-duration: 4000ms;
+			-ms-animation-iteration-count: infinite;
+			-ms-animation-timing-function: linear;
+			
+			animation-name: spin;
+			animation-duration: 4000ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			}
+			@-ms-keyframes spin {
+			from { -ms-transform: rotate(0deg); }
+			to { -ms-transform: rotate(360deg); }
+			}
+			@-moz-keyframes spin {
+			from { -moz-transform: rotate(0deg); }
+			to { -moz-transform: rotate(360deg); }
+			}
+			@-webkit-keyframes spin {
+			from { -webkit-transform: rotate(0deg); }
+			to { -webkit-transform: rotate(360deg); }
+			}
+			@keyframes spin {
+			from {
+			transform:rotate(0deg);
+			}
+			to {
+			transform:rotate(360deg);
+			}
+			}
 		</style>
 		
 		
 	</head>
 	
-    <body style="margin-top: 20px; background-color:	#38B5AE">
+    <body style="margin-top: 20px; background-color: #38B5AE">
+		
+		<img class="circle expandUp" id="logo" src="img/logo.png" style="width: 150px;height: 150px;position: fixed; bottom: 30px;left: 30px;" />
 		
 		
 		<div class="container" style="">
@@ -86,10 +132,40 @@
 					<div id="countdown" style="margin-left:-60px"></div>					
 					<p id="note"></p>
 				</div-->
+				<div class="col s2">
+					<!-- TIMER 1 -->
+					<!--div class="m-wrap tx" >
+						<div class="o-watch-wrap" style="background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url('img/logo.png');background-position: center; background-size: cover;color: white;">
+							<div class="watch-ui">
+								<div class="o-ring">
+									<div class="o-timer-wrap">
+										<div class="ring-wrap">
+											<svg class="c-t" width="200" height="200">
+												<circle class="c-c" cx="90" cy="100" r="97.5" transform="rotate(-90, 95, 95)"/>
+											</svg>
+										</div>
+										<div class="o-timer">
+											<span class="t-time"></span>
+										</div>
+									</div>
+									<div class="t-options">
+										<span class="t-options-time">
+											<span class="btn b-dec o-opt-btn b-revc glyphicon glyphicon-play"></span>
+											<span class="o-opt-btn display"></span>
+											<span class="btn b-inc o-opt-btn glyphicon glyphicon-play"></span>
+										</span>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div-->
+					<!-- END TIMER 1 -->
+				</div>
 				<div class="col s5 right">
 					
 					<div class="row">
-						<div class="chip  right" id="team2_name" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(242, 38, 19,1)">
+						<div class="chip  right" id="team2_name" style="font-family: 'Pathway Gothic One', 'sans-serif'; font-size: 35px; background-color: rgba(242, 38, 19,1);">
 							<!--img src="img/logo.png" alt="team2"-->
 							Team 2 
 						</div>
@@ -120,37 +196,9 @@
 					</div>
 				</div>
 			</div>
-			
-			<!-- TIMER 1 -->
-			<!--div class="m-wrap tx">
-				<div class="o-watch-wrap">
-				<div class="watch-ui">
-				<div class="o-ring">
-				<div class="o-timer-wrap">
-				<div class="ring-wrap">
-				<svg class="c-t" width="200" height="200">
-				<circle class="c-c" cx="90" cy="100" r="97.5" transform="rotate(-90, 95, 95)"/>
-				</svg>
-				</div>
-				<div class="o-timer">
-				<span class="t-time"></span>
-				</div>
-				</div>
-				<div class="t-options">
-				<span class="t-options-time">
-				<span class="btn b-dec o-opt-btn b-revc glyphicon glyphicon-play"></span>
-				<span class="o-opt-btn display"></span>
-				<span class="btn b-inc o-opt-btn glyphicon glyphicon-play"></span>
-				</span>
-				</div>
-				</div>
-				
-				</div>
-				</div>
-			</div-->
-			<!-- END TIMER 1 -->
-			
 		</div>
+		
+		
 		
 		
 		
@@ -159,11 +207,11 @@
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		
 		<!-- JS TIMER 1 -->
-		<!--script src="js/timerScript.js"></script-->
+		<script src="js/timerScript.js"></script>
 		
 		<!-- JS TIMER 2 -->
-		<script src="js/jqueryTimer2.countdown.js"></script>
-		<script src="js/scriptTimer2.js"></script>
+	<!--script src="js/jqueryTimer2.countdown.js"></script>
+		<script src="js/scriptTimer2.js"></script-->
 		<script>
 			$(document).ready(function(){
 				
@@ -397,6 +445,23 @@
 				});
 				gen++;
 			}, 1000 ); // 5000 miliseconds == 5 seconds
+		</script>
+		
+		
+		
+		<script>
+			var gen = 1;
+			
+			var id = setInterval(function(){
+				if($('#logo').hasClass('expandUp')){
+					$('#logo').removeClass('expandUp');
+					}else{
+					$('#logo').addClass('expandUp');
+				}
+				
+				
+				gen++;
+			}, 4000 ); // 5000 miliseconds == 5 seconds
 		</script>
 		
 		

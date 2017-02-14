@@ -20,8 +20,8 @@ $(document).ready(function() {
 
                 if (sec >= 5) {
                     clearInterval(timerInt);
+					//setTimeout(function() { alert('TimeOut'); }, 1000);
                 }
-				
 				
 				
 
